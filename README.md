@@ -1,6 +1,9 @@
 # GenAI-Interview-Questions
 
-**1. What is an Artificial Neural Network, and how does it work?**
+<ins>**Question on Artificial Neural Network(ANN):**</ins></br>
+
+
+__1. What is an Artificial Neural Network, and how does it work?__
 
 An **Artificial Neural Network (ANN)** is a computational model inspired by the way biological neural networks in the human brain process information. It is a key concept in the field of **machine learning** and **deep learning** and is used to solve complex problems such as image recognition, natural language processing, and more.
 
@@ -38,3 +41,63 @@ An **Artificial Neural Network (ANN)** is a computational model inspired by the 
 - **Deep Neural Networks (DNNs)**: ANNs with multiple hidden layers, capable of learning complex hierarchical patterns. These are the foundation of **deep learning**.
 
 In summary, an **Artificial Neural Network** works by passing data through interconnected layers of nodes, adjusting weights through backpropagation and gradient descent, and learning patterns in the data to make predictions or decisions.
+
+__2. What are activation functions, tell me the type of the activation functions and  why are they used in neural networks?__
+**Activation functions** are mathematical operations used in neural networks that determine whether a neuron should be activated or not by computing a weighted sum and adding bias to decide whether it should be passed forward. They introduce non-linearity into the network, enabling it to learn and model complex data patterns.
+
+### Why are Activation Functions Used?
+- **Non-Linearity**: They introduce non-linearity to help the network learn complex patterns that a linear function alone cannot capture.
+- **Output Regulation**: They control the output of neurons, shaping it to be within a specific range (e.g., 0 to 1 or -1 to 1).
+- **Gradient-Based Learning**: They facilitate backpropagation by defining how errors are propagated backward during the training process.
+
+### Types of Activation Functions
+
+1. **Linear Activation Function**:
+   - **Equation**: \( f(x) = x \)
+   - **Characteristics**: Directly passes the input to the output.
+   - **Limitations**: Not suitable for complex problems as it lacks non-linearity and gradient remains constant, making the network unable to learn complex data.
+
+2. **Non-Linear Activation Functions**:
+   - These allow the model to learn complex mappings from inputs to outputs. Some popular non-linear activation functions include:
+
+   **a. Sigmoid Function**:
+   - **Equation**: \( f(x) = \frac{1}{1 + e^{-x}} \)
+   - **Range**: (0, 1)
+   - **Pros**: Good for probabilities and output layers in binary classification.
+   - **Cons**: Vanishing gradient problem; gradients become very small when inputs are far from 0.
+
+   **b. Tanh (Hyperbolic Tangent) Function**:
+   - **Equation**: \( f(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} \)
+   - **Range**: (-1, 1)
+   - **Pros**: Zero-centered output helps in faster convergence.
+   - **Cons**: Also suffers from vanishing gradient for extreme input values.
+
+   **c. ReLU (Rectified Linear Unit)**:
+   - **Equation**: \( f(x) = \max(0, x) \)
+   - **Range**: [0, ∞)
+   - **Pros**: Computationally efficient and helps mitigate the vanishing gradient problem.
+   - **Cons**: Can suffer from the **dying ReLU problem** where neurons get stuck during training if they output 0.
+
+   **d. Leaky ReLU**:
+   - **Equation**: \( f(x) = x \) for \( x > 0 \); \( f(x) = \alpha x \) for \( x \leq 0 \) (where \( \alpha \) is a small positive constant)
+   - **Pros**: Helps prevent dying ReLU by allowing a small, non-zero gradient for negative inputs.
+   - **Cons**: Choosing the right value for \( \alpha \) can be tricky.
+
+   **e. Softmax Function**:
+   - **Equation**: \( f(x_i) = \frac{e^{x_i}}{\sum_{j} e^{x_j}} \) for \( i \) in \( 1, ..., n \)
+   - **Range**: (0, 1) for each output, and the sum of all outputs equals 1.
+   - **Use Case**: Used in multi-class classification problems to create a probability distribution over classes.
+
+   **f. Swish and Other Advanced Functions**:
+   - **Swish**: \( f(x) = x \cdot \text{sigmoid}(x) \)
+   - **Pros**: Smooth and non-monotonic, can improve training in some deep models.
+   - **Cons**: Computationally more intensive than simple ReLU.
+
+### Choosing an Activation Function
+- **Hidden Layers**: ReLU and its variants (e.g., Leaky ReLU) are commonly used in hidden layers due to their computational efficiency and ability to solve the vanishing gradient problem.
+- **Output Layer**:
+  - **Binary Classification**: Sigmoid function is commonly used.
+  - **Multi-class Classification**: Softmax function is the standard choice.
+  - **Regression**: Linear activation or no activation (identity function) is often used.
+
+Each type of activation function has unique characteristics that make it suitable for specific tasks and network architectures.
