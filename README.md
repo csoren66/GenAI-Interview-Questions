@@ -1,9 +1,9 @@
-# GenAI-Interview-Questions
+# Generative AI Interview Questions
 
 <ins>**Question on Artificial Neural Network(ANN):**</ins></br>
 
 
-__1. What is an Artificial Neural Network, and how does it work?__
+## 1. What is an Artificial Neural Network, and how does it work?
 
 An **Artificial Neural Network (ANN)** is a computational model inspired by the way biological neural networks in the human brain process information. It is a key concept in the field of **machine learning** and **deep learning** and is used to solve complex problems such as image recognition, natural language processing, and more.
 
@@ -42,7 +42,7 @@ An **Artificial Neural Network (ANN)** is a computational model inspired by the 
 
 In summary, an **Artificial Neural Network** works by passing data through interconnected layers of nodes, adjusting weights through backpropagation and gradient descent, and learning patterns in the data to make predictions or decisions.
 
-__2. What are activation functions, tell me the type of the activation functions and  why are they used in neural networks?__
+## 2. What are activation functions, tell me the type of the activation functions and  why are they used in neural networks?
 **Activation functions** are mathematical operations used in neural networks that determine whether a neuron should be activated or not by computing a weighted sum and adding bias to decide whether it should be passed forward. They introduce non-linearity into the network, enabling it to learn and model complex data patterns.
 
 ### Why are Activation Functions Used?
@@ -61,35 +61,36 @@ __2. What are activation functions, tell me the type of the activation functions
    - These allow the model to learn complex mappings from inputs to outputs. Some popular non-linear activation functions include:
 
    **a. Sigmoid Function**:
-   - **Equation**: \( f(x) = \frac{1}{1 + e^{-x}} \)
+   - **Equation**: f(x) = 1 / (1 + e<sup>-x</sup>))
    - **Range**: (0, 1)
    - **Pros**: Good for probabilities and output layers in binary classification.
    - **Cons**: Vanishing gradient problem; gradients become very small when inputs are far from 0.
 
    **b. Tanh (Hyperbolic Tangent) Function**:
-   - **Equation**: \( f(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} \)
+   - **Equation**: f(x) = (e<sup>x</sup> - e<sup>-x</sup>)/(e<sup>x</sup> + e<sup>-x</sup>)
    - **Range**: (-1, 1)
    - **Pros**: Zero-centered output helps in faster convergence.
    - **Cons**: Also suffers from vanishing gradient for extreme input values.
 
    **c. ReLU (Rectified Linear Unit)**:
-   - **Equation**: \( f(x) = \max(0, x) \)
+   - **Equation**: \( f(x) = max(0, x) \)
    - **Range**: [0, ∞)
    - **Pros**: Computationally efficient and helps mitigate the vanishing gradient problem.
    - **Cons**: Can suffer from the **dying ReLU problem** where neurons get stuck during training if they output 0.
 
    **d. Leaky ReLU**:
-   - **Equation**: \( f(x) = x \) for \( x > 0 \); \( f(x) = \alpha x \) for \( x \leq 0 \) (where \( \alpha \) is a small positive constant)
+   - **Equation**: f(x) = x     for x > 0
+f(x) = αx    for x ≤ 0 (where α is a small positive constant)
    - **Pros**: Helps prevent dying ReLU by allowing a small, non-zero gradient for negative inputs.
-   - **Cons**: Choosing the right value for \( \alpha \) can be tricky.
+   - **Cons**: Choosing the right value for α can be tricky.
 
    **e. Softmax Function**:
-   - **Equation**: \( f(x_i) = \frac{e^{x_i}}{\sum_{j} e^{x_j}} \) for \( i \) in \( 1, ..., n \)
+   - **Equation**: f(x<sub>i</sub>) = e<sup>x<sub>i</sub></sup> / Σ<sub>j</sub> e<sup>x<sub>j</sub></sup>    for i in {1, ..., n}
    - **Range**: (0, 1) for each output, and the sum of all outputs equals 1.
    - **Use Case**: Used in multi-class classification problems to create a probability distribution over classes.
 
    **f. Swish and Other Advanced Functions**:
-   - **Swish**: \( f(x) = x \cdot \text{sigmoid}(x) \)
+   - **Swish**: f(x) = x · sigmoid(x) = x · (1 / (1 + e<sup>-x</sup>))
    - **Pros**: Smooth and non-monotonic, can improve training in some deep models.
    - **Cons**: Computationally more intensive than simple ReLU.
 
