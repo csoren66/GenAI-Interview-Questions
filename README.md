@@ -138,6 +138,8 @@ $$
 - **Gradients**: Quantify the change needed for each weight to reduce the loss.
 - **Learning Rate**: A hyperparameter that controls the step size of each weight update. A rate too high can overshoot minima; too low can slow convergence.
 
+
+## 4.What is the vanishing gradient and exploding gradient problem, and how can it affect neural network training?
 The **vanishing gradient** and **exploding gradient** problems are issues that occur during the training of deep neural networks, particularly those with many layers (e.g., deep feedforward or recurrent neural networks). These problems can severely impact the ability of a neural network to learn effectively. Here’s what they mean and how they affect training:
 
 ### 1. **Vanishing Gradient Problem**
