@@ -751,4 +751,80 @@ An **Artificial Neural Network (ANN)**, or simply a **fully connected neural net
 | **Computational Cost**    | High for high-dimensional data       | More efficient for image/video processing|
 | **Common Applications**   | General-purpose (tabular data, etc.)  | Image classification, object detection, video analysis |
 
+## 14. How does a recurrent neural network (RNN) work, and what are its limitations?
+### How Does a Recurrent Neural Network (RNN) Work?
+
+A **Recurrent Neural Network (RNN)** is a type of neural network designed for processing sequential data. Unlike feedforward networks, RNNs have **recurrent connections** that allow information to be passed from one step to the next within a sequence. This makes RNNs well-suited for tasks where the input data has a temporal or sequential nature, such as time-series data, speech, and natural language.
+
+#### Key Components of an RNN:
+1. **Recurrent Connections**:
+   - In an RNN, the output of each neuron is fed back as input to the same neuron in the next time step. This enables the network to maintain a "memory" of previous inputs.
+   - Formally, at each time step \( t \), the hidden state \( h_t \) is updated using the previous hidden state \( h_{t-1} \) and the current input \( x_t \):
+     \[
+     h_t = \tanh(W_h \cdot h_{t-1} + W_x \cdot x_t + b)
+     \]
+     where \( W_h \) and \( W_x \) are weight matrices, and \( b \) is the bias term.
+  
+2. **Hidden State**:
+   - The hidden state \( h_t \) acts as the memory of the RNN, capturing information from previous time steps. This is passed to the next time step, which influences the network's prediction or output.
+  
+3. **Output**:
+   - At each time step, the RNN produces an output \( y_t \) based on the current hidden state:
+     \[
+     y_t = W_y \cdot h_t + b_y
+     \]
+     where \( W_y \) is the output weight matrix, and \( b_y \) is the bias term.
+
+#### Key Features of RNNs:
+- **Sequential Processing**: RNNs process data sequentially, meaning they consider the context provided by previous time steps when making predictions or decisions.
+- **Shared Weights**: The same weights are shared across all time steps, which makes RNNs efficient and allows them to generalize across sequences of different lengths.
+
+### Use Cases of RNNs:
+- **Natural Language Processing (NLP)**:
+  - **Text Generation**: RNNs are used to generate text by learning from a sequence of words or characters and predicting the next word/character.
+  - **Machine Translation**: RNNs are used to translate text from one language to another by encoding the input sequence and decoding it into the target sequence.
+  - **Sentiment Analysis**: RNNs can analyze the sentiment of a text based on the context provided by earlier words in a sentence.
+  
+- **Speech Processing**: RNNs can be used for speech recognition, converting spoken language into text, and speech synthesis (text-to-speech).
+  
+- **Time Series Forecasting**: RNNs are used in predicting future values based on historical data, like stock market prediction or weather forecasting.
+
+- **Video Processing**: RNNs can be used to analyze sequences of video frames, useful in tasks such as action recognition and video captioning.
+
+### Limitations of RNNs:
+
+While RNNs are powerful for handling sequential data, they come with several limitations:
+
+1. **Vanishing and Exploding Gradients**:
+   - **Vanishing Gradients**: During backpropagation, the gradients of the loss function with respect to the weights can shrink exponentially as they are propagated backward through time. This results in the model being unable to learn long-term dependencies.
+   - **Exploding Gradients**: In some cases, the gradients can become too large, causing instability during training (weights becoming excessively large).
+   - These issues make training RNNs on long sequences difficult and can lead to poor performance when trying to capture long-term dependencies.
+
+2. **Difficulty Capturing Long-Term Dependencies**:
+   - Standard RNNs struggle to learn long-term dependencies, i.e., they have difficulty remembering information from earlier time steps when the sequence is long. This is due to the vanishing gradient problem, where the gradient becomes too small for long sequences.
+
+3. **Training Time**:
+   - RNNs are computationally expensive and slow to train, especially when dealing with long sequences. This is because each time step must depend on the previous time step, making parallelization difficult.
+  
+4. **Limited Memory**:
+   - Traditional RNNs only maintain a single hidden state, which may not be sufficient for complex tasks that require a richer memory representation. This limitation can make them less effective for certain applications.
+
+5. **Poor Performance on Complex Tasks**:
+   - For tasks requiring the modeling of very long-term dependencies or complex relationships, simple RNNs may not perform well compared to other architectures like **Long Short-Term Memory (LSTM)** networks or **Gated Recurrent Units (GRU)**.
+
+### Solutions to RNN Limitations:
+To address the limitations of basic RNNs, several advanced architectures have been developed:
+
+1. **Long Short-Term Memory (LSTM)**:
+   - LSTMs are a type of RNN specifically designed to address the vanishing gradient problem. They use **gates** (input, forget, and output gates) to control the flow of information, allowing the network to maintain and access information over longer time periods.
+  
+2. **Gated Recurrent Units (GRU)**:
+   - GRUs are similar to LSTMs but with a simplified architecture. They also use gates to control the flow of information, but they combine the forget and input gates into a single update gate, making them computationally more efficient.
+
+3. **Bidirectional RNNs**:
+   - In a bidirectional RNN, there are two hidden layers: one that processes the sequence from left to right and another that processes the sequence from right to left. This allows the network to have access to both past and future context.
+
+4. **Attention Mechanisms**:
+   - Attention mechanisms, like those used in **Transformers**, allow the network to focus on important parts of the sequence and mitigate the problems of long-term dependencies.
+
 
