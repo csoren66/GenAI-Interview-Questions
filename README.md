@@ -102,3 +102,41 @@ f(x) = αx    for x ≤ 0 (where α is a small positive constant)
   - **Regression**: Linear activation or no activation (identity function) is often used.
 
 Each type of activation function has unique characteristics that make it suitable for specific tasks and network architectures.
+
+Backpropagation is a fundamental algorithm used for training artificial neural networks. It enables the network to learn by adjusting its weights and biases to minimize the error between predicted outputs and actual target values. Here's a detailed breakdown of how backpropagation works:
+
+### 1. **Forward Pass**
+- The input data is fed into the network.
+- Each layer of the network processes the input by applying weights, biases, and activation functions, passing the output to the next layer until the final layer produces the output.
+- The output is compared to the actual target (ground truth) to calculate the **loss** (error) using a loss function, such as mean squared error (MSE) for regression or cross-entropy for classification.
+
+### 2. **Backward Pass (Backpropagation Step)**
+- The algorithm calculates the gradient of the loss function with respect to each weight and bias in the network. This process uses the **chain rule** of calculus to propagate the error backward from the output layer to the input layer.
+- Gradients represent how much the loss would change with a small change in each weight. These gradients are essential for updating the weights.
+
+### 3. **Gradient Calculation**
+- For each neuron, the algorithm computes the partial derivative of the loss with respect to its inputs, weights, and biases. This involves:
+  - **Output Layer**: The gradient of the loss is calculated directly concerning the output layer's weights and biases.
+  - **Hidden Layers**: The gradients are propagated backward layer by layer using the chain rule to compute how each preceding layer contributed to the overall loss.
+
+### 4. **Weight Update**
+- Once the gradients are obtained, an optimization algorithm (e.g., **stochastic gradient descent (SGD)**, **Adam**, etc.) updates the weights and biases to minimize the loss.
+- The weights $w$
+ are updated using the rule:
+
+$$
+w_{\text{new}} = w_{\text{old}} - \eta \cdot \frac{\partial L}{\partial w}
+$$
+
+  where $\eta$ is the **learning rate**, and $( \frac{\partial L}{\partial w} \)$ is the gradient of the loss with respect to the weight.
+
+### 5. **Iterative Process**
+- This process is repeated iteratively for multiple epochs until the network's loss converges to a minimal value, indicating that the model has learned to map inputs to outputs effectively.
+
+### **Key Concepts Involved**
+- **Chain Rule**: Essential for computing how errors are propagated through each layer.
+- **Gradients**: Quantify the change needed for each weight to reduce the loss.
+- **Learning Rate**: A hyperparameter that controls the step size of each weight update. A rate too high can overshoot minima; too low can slow convergence.
+
+
+
