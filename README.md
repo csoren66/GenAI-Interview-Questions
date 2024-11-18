@@ -827,4 +827,41 @@ To address the limitations of basic RNNs, several advanced architectures have be
 4. **Attention Mechanisms**:
    - Attention mechanisms, like those used in **Transformers**, allow the network to focus on important parts of the sequence and mitigate the problems of long-term dependencies.
 
+<ins>**Questions on Classical Natural Language Processing:**</br></ins>
+## 1. What is tokenization? Give me a difference between lemmatization and stemming?
+**Tokenization** is the process of breaking down text into smaller units called *tokens*. These tokens can be words, phrases, or even characters, depending on the task. Tokenization helps in simplifying text processing by allowing algorithms to analyze and work with pieces of text.
 
+**Difference between Lemmatization and Stemming**:
+- **Stemming** is the process of reducing words to their root or base form by removing suffixes or prefixes. The resulting "stem" may not be a valid word in the language. For example, *"running"* becomes *"run"* and *"better"* might become *"bett"*.
+- **Lemmatization**, on the other hand, reduces words to their base or dictionary form (lemma). It considers the context and part of speech of the word, ensuring that the output is a valid word. For example, *"running"* becomes *"run"* and *"better"* becomes *"good"*.
+
+**Summary**:
+- **Stemming** is typically faster but less accurate and might not produce a real word.
+- **Lemmatization** is more accurate and context-aware, yielding a meaningful word, but can be computationally heavier.
+
+## 2. Explain the concept of Bag of Words (BoW) and its limitations.
+**Bag of Words (BoW)** is a simple and widely used technique for text representation in Natural Language Processing (NLP). In BoW, a piece of text (such as a document or sentence) is represented as a collection of the words that it contains, without considering the order or grammar. Each unique word in the text corpus is assigned a feature, and a vector is created that counts the number of times each word appears in the text.
+
+**How BoW Works**:
+- Create a vocabulary of unique words from the entire text corpus.
+- For each document or sentence, create a vector with the length equal to the vocabulary size.
+- Populate the vector with word counts or binary indicators (whether a word is present or not) for each word in the vocabulary.
+
+**Example**:
+Consider two sentences:
+1. "The cat sat on the mat."
+2. "The dog barked at the cat."
+
+The BoW representation might look like:
+- Vocabulary: [the, cat, sat, on, mat, dog, barked, at]
+- Sentence 1 vector: [2, 1, 1, 1, 1, 0, 0, 0]
+- Sentence 2 vector: [2, 1, 0, 0, 0, 1, 1, 1]
+
+**Limitations of BoW**:
+1. **Ignores Word Order**: BoW does not capture the order of words, which means it loses semantic meaning. For example, "dog bites man" and "man bites dog" would have the same vector representation, even though they have different meanings.
+2. **High Dimensionality**: For large corpora, the vocabulary size can become very large, leading to high-dimensional feature vectors. This increases memory usage and computational costs.
+3. **Sparse Representation**: Most vectors are sparse (i.e., contain many zeros), as not every document uses every word in the vocabulary.
+4. **Lacks Semantic Information**: BoW only counts the occurrences of words and does not capture relationships between words or their context, making it unable to understand synonyms or polysemy.
+5. **Insensitive to Word Frequency Beyond Presence**: While BoW can use raw counts, more advanced needs like distinguishing frequent versus significant words require additional weighting, like *TF-IDF*.
+
+Despite its simplicity and limitations, BoW is still used as a baseline in NLP tasks and has influenced more complex models like *TF-IDF* and *word embeddings*.
