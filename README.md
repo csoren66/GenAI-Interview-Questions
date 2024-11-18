@@ -973,3 +973,49 @@ Natural Language Processing (NLP) has a wide range of applications across variou
 12. **Question Answering Systems**: Employed in customer support and interactive QA bots that provide direct answers from large datasets or structured knowledge bases.
 
 These applications demonstrate how NLP helps automate and enhance various business processes, improve user experiences, and drive insights from large volumes of text data.
+
+## 6. What is Named Entity Recognition (NER), and where is it applied?
+**Named Entity Recognition (NER)** is a sub-task of Natural Language Processing (NLP) that involves identifying and classifying key information (entities) in a text into predefined categories. These entities often include:
+
+- **People's names (e.g., "Elon Musk")**
+- **Organizations (e.g., "United Nations")**
+- **Locations (e.g., "Paris")**
+- **Dates and times (e.g., "January 1st, 2025")**
+- **Monetary values (e.g., "$10 million")**
+- **Percentages (e.g., "75%")**
+- **Product names (e.g., "iPhone 15")**
+- **Other specialized categories (e.g., medical terms, chemical names)**
+
+### **How NER Works**
+NER algorithms parse text to find entities by using rule-based techniques, machine learning models, or deep learning approaches. Models are typically trained on labeled datasets where entities are annotated with their correct classifications. Common frameworks and libraries for NER include **spaCy**, **NLTK**, **Stanford NER**, and **Hugging Face Transformers**.
+
+### **Applications of NER**
+NER is widely applied in various domains and use cases, such as:
+
+1. **Information Extraction**:
+   - Extracting important facts and data from large documents or news articles.
+   - Identifying key players and events from text for reports or briefings.
+
+2. **Search Engine Optimization**:
+   - Enhancing search algorithms by categorizing and indexing content based on identified entities.
+
+3. **Document Categorization and Summarization**:
+   - Assisting in summarizing documents by identifying and highlighting main entities.
+   - Facilitating automatic content tagging for better organization.
+
+4. **Customer Support Automation**:
+   - Used in chatbots to identify relevant user details such as names, locations, or product references for more personalized responses.
+
+5. **Fraud Detection and Compliance**:
+   - Recognizing entities involved in financial transactions to flag suspicious activity or ensure regulatory compliance.
+
+6. **Healthcare and Biomedical Applications**:
+   - Extracting information like patient names, medications, or conditions from medical documents to assist in clinical decision-making.
+
+7. **Business Intelligence and Competitive Analysis**:
+   - Identifying companies, products, or market trends from industry reports to gain insights.
+
+8. **Sentiment Analysis and Brand Monitoring**:
+   - Identifying mentions of brands, products, or individuals in social media and reviews to gauge public sentiment.
+
+NER helps convert unstructured text into structured data that can be analyzed and used for various automated systems and decision-making processes, making it a vital tool in modern data-driven industries.
