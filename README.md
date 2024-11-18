@@ -1037,11 +1037,11 @@ NER helps convert unstructured text into structured data that can be analyzed an
    - **Dirichlet Priors**: LDA uses two Dirichlet distributions as priors:
      - **α (alpha)**: Prior for the distribution of topics in documents.
      - **β (beta)**: Prior for the distribution of words in topics.
-   - **Document-Topic Distribution (\(\theta\))**: For each document \( d \), LDA assumes a distribution \( \theta_d \) over \( K \) topics.
-   - **Topic-Word Distribution (\(\phi\))**: For each topic \( k \), LDA assumes a distribution \( \phi_k \) over the vocabulary \( V \).
+   - **Document-Topic Distribution $(\(\theta\))$**: For each document $\( d \)$, LDA assumes a distribution $\( \theta_d \)$ over $\( K \)$ topics.
+   - **Topic-Word Distribution $(\(\phi\))$**: For each topic $\( k \)$, LDA assumes a distribution $\( \phi_k \)$ over the vocabulary $\( V \)$.
 
 4. **Inference and Estimation**:
-   - The goal is to infer the hidden structure of the topics in the corpus. LDA uses **Bayesian inference** methods, such as **Gibbs sampling** or **Variational Bayes**, to estimate the distributions \( \theta \) (document-topic) and \( \phi \) (topic-word).
+   - The goal is to infer the hidden structure of the topics in the corpus. LDA uses **Bayesian inference** methods, such as **Gibbs sampling** or **Variational Bayes**, to estimate the distributions $\( \theta \) (document-topic) and \( \phi \) (topic-word)$.
    - These methods iteratively refine the topic assignments for each word to maximize the likelihood of the observed data given the topic distributions.
 
 ### **Output of LDA**:
