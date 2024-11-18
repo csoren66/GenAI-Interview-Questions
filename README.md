@@ -865,3 +865,55 @@ The BoW representation might look like:
 5. **Insensitive to Word Frequency Beyond Presence**: While BoW can use raw counts, more advanced needs like distinguishing frequent versus significant words require additional weighting, like *TF-IDF*.
 
 Despite its simplicity and limitations, BoW is still used as a baseline in NLP tasks and has influenced more complex models like *TF-IDF* and *word embeddings*.
+
+## 3. How does TF-IDF work, and how is it different from simple word frequency?
+**TF-IDF (Term Frequency-Inverse Document Frequency)** is a statistical measure used in text analysis to evaluate the importance of a word in a document relative to a collection of documents (corpus). It improves upon the simple word frequency approach by accounting for the frequency of words across all documents, helping to identify words that are not just common within a document but significant overall.
+
+### How TF-IDF Works:
+1. **Term Frequency (TF)**: Measures how frequently a word appears in a document. It is defined as:
+
+$$
+\text{TF}(t, d) = \frac{\text{Number of times term } t \text{ appears in document } d}{\text{Total number of terms in document } d}
+$$
+   
+   This gives a relative frequency of the term in the specific document.
+
+3. **Inverse Document Frequency (IDF)**: Measures how important a word is across all documents in the corpus. It is defined as:
+
+$$
+\text{IDF}(t) = \log \left(\frac{\text{Total number of documents}}{\text{Number of documents containing term } t}\right)
+$$
+   
+   This scales down the weight of words that appear frequently across many documents (e.g., "the", "is") and boosts the weight of rare or unique words.
+
+4. **TF-IDF Calculation**:
+   The final TF-IDF score for a term \( t \) in a document \( d \) is the product of its TF and IDF:
+
+$$
+\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \text{IDF}(t)
+$$
+
+
+   This score reflects the importance of a term in a document relative to its importance in the entire corpus.
+
+### Difference Between TF-IDF and Simple Word Frequency:
+- **Normalization of Common Words**: While simple word frequency only counts how often a term appears in a document, TF-IDF adjusts these counts by considering how common or rare a term is across all documents. Words that are common across many documents (e.g., "and", "the") get a lower weight in TF-IDF, while unique terms are given higher importance.
+- **Better Discrimination**: TF-IDF helps differentiate documents based on significant terms rather than just counting words. Simple word frequency might give too much importance to common words, leading to less meaningful feature vectors.
+- **Handling of Stop Words**: In simple word frequency, stop words (common words) might dominate the representation, but TF-IDF downweights them, making the representation more informative.
+
+### Example:
+Consider a corpus with two documents:
+1. "The cat sat on the mat."
+2. "The dog barked at the cat."
+
+Word frequency for "cat" in both documents:
+- Document 1: Frequency = 1
+- Document 2: Frequency = 1
+
+TF for "cat" in Document 1:
+- TF = $\( \frac{1}{6} \) (since there are 6 words in total in Document 1)$
+
+If "cat" appears in both documents, IDF might be:
+- IDF = $\( \log \left(\frac{2}{2}\right) = 0 \)$ , indicating that "cat" is common across all documents and not particularly important.
+
+**Result**: TF-IDF would give a low score to "cat" because it appears in all documents, showing it’s not significant, whereas simple word frequency treats "cat" as equally important without this context.
