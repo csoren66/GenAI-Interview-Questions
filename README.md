@@ -917,3 +917,30 @@ If "cat" appears in both documents, IDF might be:
 - IDF = $\( \log \left(\frac{2}{2}\right) = 0 \)$ , indicating that "cat" is common across all documents and not particularly important.
 
 **Result**: TF-IDF would give a low score to "cat" because it appears in all documents, showing it’s not significant, whereas simple word frequency treats "cat" as equally important without this context.
+
+## 4. What is word embedding, and why is it useful in NLP?
+**Word embedding** is a technique in Natural Language Processing (NLP) that represents words as dense, continuous, and low-dimensional vectors. Unlike traditional methods like the Bag of Words (BoW) or TF-IDF, which produce sparse vectors with high dimensionality, word embeddings capture semantic relationships between words by placing similar words close to each other in the vector space.
+
+### How Word Embedding Works:
+Word embeddings are typically learned from large text corpora using models like:
+- **Word2Vec** (with *Skip-gram* and *Continuous Bag of Words (CBOW)* architectures)
+- **GloVe** (Global Vectors for Word Representation)
+- **FastText**
+
+These models create a vector space where each word is represented by a point, and the distance or angle between the points indicates the semantic similarity between words. For example, the vectors for "king" and "queen" are close to each other, and vector arithmetic allows for analogies like:
+
+$$
+\text{vector}(\text{king}) - \text{vector}(\text{man}) + \text{vector}(\text{woman}) \approx \text{vector}(\text{queen})
+$$
+
+### Why Word Embedding is Useful in NLP:
+1. **Captures Semantic Meaning**: Word embeddings encode the context of words, allowing models to understand semantic similarities and relationships (e.g., "car" and "automobile" have similar embeddings).
+2. **Efficient Representation**: Words are represented as dense vectors in a lower-dimensional space (e.g., 100-300 dimensions) instead of sparse, high-dimensional vectors, improving both memory and computation.
+3. **Contextual Information**: Unlike simple BoW models that ignore context, embeddings can capture relationships between words in sentences based on co-occurrence, making them more powerful for tasks involving word similarity.
+4. **Improves Performance on NLP Tasks**: Pre-trained word embeddings (e.g., from Word2Vec or GloVe) are commonly used as input to various NLP models, enhancing performance on tasks like sentiment analysis, machine translation, and text classification.
+5. **Facilitates Transfer Learning**: Word embeddings learned from one corpus can be applied to different NLP tasks, making them versatile for downstream applications.
+
+### Example of Word Embedding Benefits:
+In traditional BoW, the words "apple" (fruit) and "orange" (fruit) may be represented as separate entities without any notion of similarity. However, in a word embedding space, these words would be close to each other, reflecting their semantic relationship. This proximity helps models recognize that they belong to the same category, improving tasks like text classification and clustering.
+
+Overall, word embeddings have been a foundational advancement in NLP, forming the basis for deeper models and contextual representations, such as those used in transformers (e.g., BERT).
