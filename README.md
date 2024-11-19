@@ -2,7 +2,6 @@
 
 <ins>**Question on Artificial Neural Network(ANN):**</ins></br>
 
-
 ## 1. What is an Artificial Neural Network, and how does it work?
 
 An **Artificial Neural Network (ANN)** is a computational model inspired by the way biological neural networks in the human brain process information. It is a key concept in the field of **machine learning** and **deep learning** and is used to solve complex problems such as image recognition, natural language processing, and more.
@@ -1444,3 +1443,58 @@ $$
 
 ### **Conclusion**
 A **language model** is a fundamental component of many NLP tasks, where its role is to predict or generate natural language based on the statistical relationships it has learned from a large corpus of text. Evaluating a language model involves multiple metrics, such as **perplexity**, **accuracy**, **log-likelihood**, and **BLEU/ROUGE scores**, as well as human evaluation for more nuanced tasks. The choice of evaluation method depends on the specific application and the nature of the task, whether it's predictive, generative, or classification-based.
+
+
+<ins>**Questions on Transformer and Its Extended Architecture:**</ins></br>
+
+## 1. Describe the concept of learning rate scheduling and its role in optimizing the training process of generative models over time.
+**Learning rate scheduling** is a technique used in the optimization process of training machine learning models, including generative models, to dynamically adjust the learning rate during training. The learning rate determines the size of the steps the optimizer takes in the direction of minimizing the loss function. Effective learning rate scheduling plays a critical role in achieving better convergence and overall model performance.
+
+### **Role in Optimization**
+
+1. **Improved Convergence**: 
+   - A high learning rate at the start of training allows the model to make large steps towards a good solution quickly, escaping flat or unimportant regions in the loss landscape.
+   - Gradually reducing the learning rate as training progresses ensures the model fine-tunes its parameters around the optimal solution without overshooting.
+
+2. **Avoiding Local Minima and Plateaus**:
+   - Early large steps help avoid getting stuck in local minima or saddle points.
+   - Later small adjustments help refine the parameters for global optima or desirable minima.
+
+3. **Reducing Overfitting**:
+   - Smaller learning rates towards the end of training ensure that the model doesn't oscillate significantly, which could lead to overfitting the training data.
+
+4. **Stabilizing Generative Models**:
+   - In generative models, such as GANs or autoregressive transformers, training instability can arise due to sensitive interactions between components. A carefully designed learning rate schedule helps stabilize these dynamics.
+
+---
+
+### **Types of Learning Rate Schedules**
+
+1. **Step Decay**:
+   - The learning rate is reduced by a factor (e.g., halved) after a fixed number of epochs or iterations.
+   - Example: Reduce by 50% every 10 epochs.
+
+2. **Exponential Decay**:
+   - The learning rate decreases exponentially as a function of the epoch or iteration.
+   - Formula: \( \eta_t = \eta_0 \cdot e^{-\lambda t} \), where \( \eta_t \) is the learning rate at time \( t \), \( \eta_0 \) is the initial learning rate, and \( \lambda \) is the decay rate.
+
+3. **Cosine Annealing**:
+   - The learning rate follows a cosine curve, starting high and gradually decreasing, potentially resetting (restarts) during training.
+   - Useful for cyclical or longer training schedules.
+
+4. **Cyclical Learning Rates**:
+   - The learning rate periodically increases and decreases within a specified range. This helps the optimizer explore the loss landscape more thoroughly.
+
+5. **Warm-up**:
+   - Starts with a very low learning rate and gradually increases to a peak value before transitioning to a decay schedule.
+   - Often used in conjunction with transformers to stabilize training in the early stages.
+
+---
+
+### **Practical Considerations**
+
+- **Hyperparameter Tuning**: Selecting the initial learning rate and schedule parameters is critical and often determined through experimentation.
+- **Monitoring Metrics**: Adjust schedules based on performance metrics (e.g., validation loss) to avoid premature convergence or overfitting.
+- **Integration with Optimizers**: Popular optimizers like Adam or SGD can work with custom schedules or predefined ones in deep learning libraries.
+
+By incorporating learning rate scheduling, the training process of generative models can be made more efficient, leading to better performance and faster convergence with fewer issues related to instability or overfitting.
