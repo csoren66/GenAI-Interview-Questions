@@ -1476,7 +1476,7 @@ A **language model** is a fundamental component of many NLP tasks, where its rol
 
 2. **Exponential Decay**:
    - The learning rate decreases exponentially as a function of the epoch or iteration.
-   - Formula: \( \eta_t = \eta_0 \cdot e^{-\lambda t} \), where \( \eta_t \) is the learning rate at time \( t \), \( \eta_0 \) is the initial learning rate, and \( \lambda \) is the decay rate.
+   - Formula: $\( \eta_t = \eta_0 \cdot e^{-\lambda t} \)$ , where $\( \eta_t \)$ is the learning rate at time $\( t \)$ , $\( \eta_0 \)$ is the initial learning rate, and $\( \lambda \)$ is the decay rate.
 
 3. **Cosine Annealing**:
    - The learning rate follows a cosine curve, starting high and gradually decreasing, potentially resetting (restarts) during training.
