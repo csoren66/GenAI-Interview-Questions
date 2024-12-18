@@ -1569,3 +1569,68 @@ Here are the key differences between **GPT** and **BERT**, two foundational tran
 - **GPT**: Includes GPT-2, GPT-3, and GPT-4, focusing on scaling for improved generation capabilities.
 - **BERT**: Includes BERT-base, BERT-large, DistilBERT (smaller and faster), and domain-specific variants (e.g., BioBERT, RoBERTa).
 
+## 4. What problems of RNNs do transformer models solve?
+Transformer models address several key problems associated with Recurrent Neural Networks (RNNs), including both standard RNNs and their variants like LSTMs and GRUs. Here's a breakdown of these issues and how transformers overcome them:
+
+---
+
+### 1. **Sequential Processing Bottleneck**
+- **Problem in RNNs**: RNNs process input sequentially, which means each time step must wait for the previous one to be computed. This sequential nature limits parallelization and slows training and inference.
+- **Transformers' Solution**: Transformers process input **in parallel** using self-attention mechanisms, enabling them to handle all tokens simultaneously. This greatly accelerates training and allows for better scalability with large datasets.
+
+---
+
+### 2. **Long-Term Dependency Challenges**
+- **Problem in RNNs**: RNNs struggle with capturing long-term dependencies due to issues like **vanishing gradients**, making it difficult for the model to retain information from distant parts of the sequence.
+- **Transformers' Solution**: The **self-attention mechanism** in transformers enables them to capture relationships between any two tokens in a sequence, regardless of their distance. This allows them to model long-range dependencies more effectively.
+
+---
+
+### 3. **Gradient Problems (Vanishing/Exploding)**
+- **Problem in RNNs**: Gradients in RNNs can either vanish or explode during backpropagation through time (BPTT), especially in long sequences, limiting their ability to learn.
+- **Transformers' Solution**: Transformers avoid recurrent connections and use positional encodings to maintain order. The lack of recursion means they don’t suffer from vanishing or exploding gradients, even with very long sequences.
+
+---
+
+### 4. **Difficulty in Parallelization**
+- **Problem in RNNs**: Sequential data processing in RNNs makes it hard to parallelize computations, significantly increasing training time, especially for large datasets.
+- **Transformers' Solution**: Transformers leverage **parallel processing** by feeding the entire sequence into the model at once, significantly reducing training time and improving efficiency.
+
+---
+
+### 5. **Fixed Context Window**
+- **Problem in RNNs**: RNNs process input one step at a time, making their context limited to the length of the hidden state or memory mechanism (like LSTMs/GRUs). This can truncate the effective context for very long sequences.
+- **Transformers' Solution**: Transformers can process sequences of arbitrary length by using self-attention over the entire sequence. While their memory may still be constrained by hardware (e.g., GPU memory), they are much better at handling long contexts.
+
+---
+
+### 6. **Limited Representation of Global Context**
+- **Problem in RNNs**: RNNs emphasize recent tokens over earlier ones, making it hard to capture a global view of the sequence. This can limit their ability to model complex relationships in text or other sequential data.
+- **Transformers' Solution**: Self-attention explicitly computes relationships between all tokens in a sequence, providing a **global representation** of the input.
+
+---
+
+### 7. **Difficulty in Handling Non-Sequential Data**
+- **Problem in RNNs**: RNNs are inherently designed for sequential data, making them less suited for tasks requiring global attention or mixed-mode input.
+- **Transformers' Solution**: Transformers' self-attention is not bound to sequence order and can handle both sequential and non-sequential relationships efficiently. Positional encodings add sequence order when needed.
+
+---
+
+### 8. **Scaling to Large Models**
+- **Problem in RNNs**: Increasing the size of RNNs or stacking multiple layers can make them unstable and inefficient due to their sequential dependencies and difficulty in capturing long-term patterns.
+- **Transformers' Solution**: Transformers scale effectively by increasing the number of layers, attention heads, and parameters, enabling models like GPT and BERT to handle billions of parameters while remaining stable and efficient.
+
+---
+
+### Summary of Advantages of Transformers over RNNs:
+| Problem in RNNs          | Transformer Solution                     |
+|---------------------------|------------------------------------------|
+| Sequential Processing     | Parallel Processing with Self-Attention |
+| Long-Term Dependencies    | Global Context with Self-Attention      |
+| Vanishing/Exploding Gradients | No Recurrence, Stable Gradients       |
+| Limited Parallelization   | Fully Parallelizable Computation        |
+| Fixed Context Length      | Flexible Context via Full Sequence      |
+| Limited Global Context    | Global Context with Attention Mechanism |
+| Inefficient for Scaling   | Efficient Scalability and Large Models  |
+
+Transformers represent a paradigm shift in sequence modeling, making them the backbone of modern NLP systems.
