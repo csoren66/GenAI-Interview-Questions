@@ -1533,3 +1533,39 @@ By incorporating learning rate scheduling, the training process of generative mo
 3. **T5 (Text-to-Text Transfer Transformer)**: T5 is designed to convert all NLP tasks into a text-to-text format, allowing it to handle a wide range of tasks with a unified architecture. Its versatility makes it applicable for tasks like translation, summarization, question answering, and even text-based reasoning tasks.
 
 4. **RoBERTa (Robustly Optimized BERT Approach)**: RoBERTa is a variant of BERT with improved pre-training strategies, and it has been shown to outperform BERT on several benchmarks. It's used for tasks that require precise text understanding, such as sentiment analysis or NER.
+
+## 3. Highlight the key differences between models like GPT (Generative Pre-trained Transformer) and BERT (Bidirectional Encoder Representations from Transformers).
+Here are the key differences between **GPT** and **BERT**, two foundational transformer-based language models:
+
+### 1. **Architecture**
+- **GPT**: A **decoder-only** transformer model. It is designed for autoregressive tasks, generating text by predicting the next token based on the previous ones.
+- **BERT**: A **bidirectional encoder-only** transformer model. It reads the entire context (both left and right) to learn relationships between words.
+
+### 2. **Training Objective**
+- **GPT**: Trained using a **causal language modeling** objective, where the model predicts the next word in a sequence. This makes it suited for generative tasks like text completion and storytelling.
+- **BERT**: Trained using a **masked language modeling (MLM)** objective and a **next sentence prediction (NSP)** task. MLM masks some words in the input and asks the model to predict them based on the context. NSP predicts whether two sentences are consecutive in a text.
+
+### 3. **Contextual Awareness**
+- **GPT**: Processes input sequentially in a **unidirectional** manner (left-to-right for GPT models like GPT-2 and GPT-3). Each token depends only on the previous tokens.
+- **BERT**: Processes input in a **bidirectional** manner, considering both preceding and following words in a sentence simultaneously.
+
+### 4. **Applications**
+- **GPT**: Primarily used for **generative tasks**, such as text generation, creative writing, summarization, and conversational agents.
+- **BERT**: Primarily used for **understanding tasks**, such as question answering, sentiment analysis, named entity recognition, and other classification and regression tasks.
+
+### 5. **Fine-Tuning**
+- **GPT**: Often fine-tuned for generative tasks, though it can also be adapted for understanding tasks with task-specific prompts.
+- **BERT**: Fine-tuned for tasks involving sentence-level or token-level understanding.
+
+### 6. **Pre-Training Dataset**
+- **GPT**: Uses **unstructured text data** (like books and web pages) to learn how to predict sequences of tokens in a forward manner.
+- **BERT**: Trained on a mix of **unstructured text** (e.g., books) and **structured sentence pairs**, leveraging its bidirectional context-awareness.
+
+### 7. **Output**
+- **GPT**: Outputs one token at a time during text generation, leveraging the autoregressive nature of its architecture.
+- **BERT**: Outputs a vector for each token, designed to represent the token's context in the input. It is used for downstream tasks like classification or extraction.
+
+### 8. **Variants**
+- **GPT**: Includes GPT-2, GPT-3, and GPT-4, focusing on scaling for improved generation capabilities.
+- **BERT**: Includes BERT-base, BERT-large, DistilBERT (smaller and faster), and domain-specific variants (e.g., BioBERT, RoBERTa).
+
